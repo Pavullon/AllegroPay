@@ -361,3 +361,13 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+#Projects output folders
+Pawel.Gromala.Service1/bin/
+Pawel.Gromala.Service1/obj/
+
+Pawel.Gromala.Service2/bin/
+Pawel.Gromala.Service2/obj/
+
+Pawel.Gromala.Service3/bin/
+Pawel.Gromala.Service3/obj/
