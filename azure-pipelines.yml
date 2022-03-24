@@ -55,8 +55,6 @@ stages:
           - task: Docker@2
             inputs:
               containerRegistry: 'pawelgromala_docker_hub'
-              repository: 'allegro_pay'
-              command: 'buildAndPush'
-              Dockerfile: 'Pawel.Gromala.Service1/Dockerfile.dockerfile'
-              arguments: '-t pawel.gromala.service1:$(Build.BuildId)'
+              command: 'login'
+
           
