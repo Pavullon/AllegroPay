@@ -58,5 +58,5 @@ stages:
               repository: 'allegro_pay'
               command: 'build'
               Dockerfile: 'Pawel.Gromala.Service1/Dockerfile.dockerfile'
-              arguments: '-t Pawel.Gromala.Service1:$(Build.BuildNumber)'
+              arguments: '-t pawel.gromala.service1:$(Build.BuildNumber)'
           
