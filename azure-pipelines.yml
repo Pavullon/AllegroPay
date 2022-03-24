@@ -34,4 +34,3 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
-- task: Docker@2
