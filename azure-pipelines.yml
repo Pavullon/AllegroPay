@@ -57,6 +57,6 @@ stages:
               containerRegistry: 'pawelgromala_docker_hub'
               repository: 'allegro_pay'
               command: 'build'
-              Dockerfile: 'Pawel.Gromala.Service1/Dockerfile'
+              Dockerfile: 'Pawel.Gromala.Service1/Dockerfile.dockerfile'
               arguments: '-t Pawel.Gromala.Service1:$(Build.BuildNumber)'
           
