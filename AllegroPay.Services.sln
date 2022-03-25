@@ -3,11 +3,49 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A45F41B2-EAFE-478C-9D87-EEA6C2A0E01A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pawel.Gromala.Service1", "src\Pawel.Gromala.Service1\Pawel.Gromala.Service1.csproj", "{588EB894-EFFC-4731-A627-A65CCC02CAEE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A9018C7B-42F1-4910-B773-8DC3D2EACF4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pawel.Gromala.Service2", "src\Pawel.Gromala.Service2\Pawel.Gromala.Service2.csproj", "{7524ABCD-13C5-4592-A860-690F8D1AB552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pawel.Gromala.Service3", "src\Pawel.Gromala.Service3\Pawel.Gromala.Service3.csproj", "{F883073D-2F60-40A2-95C9-40C418CDC5DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pawel.Gromala.Service1.Tests", "Tests\Pawel.Gromala.Service1.Tests\Pawel.Gromala.Service1.Tests.csproj", "{45188AFE-6309-4BE0-8DEB-6A5EFF3265A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pawel.Gromala.Service2.Tests", "Tests\Pawel.Gromala.Service2.Tests\Pawel.Gromala.Service2.Tests.csproj", "{1C104C60-FA14-4CA9-88F1-4B890E764E5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pawel.Gromala.Service3.Tests", "Tests\Pawel.Gromala.Service3.Tests\Pawel.Gromala.Service3.Tests.csproj", "{59C05D02-B942-423A-A479-AE63ACBD4121}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{588EB894-EFFC-4731-A627-A65CCC02CAEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{588EB894-EFFC-4731-A627-A65CCC02CAEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{588EB894-EFFC-4731-A627-A65CCC02CAEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{588EB894-EFFC-4731-A627-A65CCC02CAEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7524ABCD-13C5-4592-A860-690F8D1AB552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7524ABCD-13C5-4592-A860-690F8D1AB552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7524ABCD-13C5-4592-A860-690F8D1AB552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7524ABCD-13C5-4592-A860-690F8D1AB552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F883073D-2F60-40A2-95C9-40C418CDC5DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F883073D-2F60-40A2-95C9-40C418CDC5DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F883073D-2F60-40A2-95C9-40C418CDC5DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F883073D-2F60-40A2-95C9-40C418CDC5DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45188AFE-6309-4BE0-8DEB-6A5EFF3265A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45188AFE-6309-4BE0-8DEB-6A5EFF3265A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45188AFE-6309-4BE0-8DEB-6A5EFF3265A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45188AFE-6309-4BE0-8DEB-6A5EFF3265A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C104C60-FA14-4CA9-88F1-4B890E764E5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C104C60-FA14-4CA9-88F1-4B890E764E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C104C60-FA14-4CA9-88F1-4B890E764E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C104C60-FA14-4CA9-88F1-4B890E764E5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59C05D02-B942-423A-A479-AE63ACBD4121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59C05D02-B942-423A-A479-AE63ACBD4121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59C05D02-B942-423A-A479-AE63ACBD4121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59C05D02-B942-423A-A479-AE63ACBD4121}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
