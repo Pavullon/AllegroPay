@@ -48,7 +48,9 @@ stages:
         steps:
 
           - powershell: |
-              ls ./
+              Write-Host "Current directory: "
+              pwd
+              Write-Host "Artifact staging directory: " $(build.artifactStagingDirectory)\
           - task: Docker@2
             inputs:
               containerRegistry: 'pawelgromala_docker_hub'
