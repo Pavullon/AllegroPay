@@ -65,7 +65,6 @@ stages:
               command: 'build'
               Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
               buildContext: 'src/Pawel.Gromala.Service1/'
-              tags: '$(Build.BuildId)'
           
           - powershell: |
               docker images
