@@ -59,31 +59,31 @@ stages:
               publishWebProjects: true
               arguments: '-c Release'
 
-          - task: Docker@2
-            displayName: Build pawel.gromala.service1 
-            inputs:
-              command: 'build'
-              Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
-              buildContext: 'src/'
-              tags: 'pawel.gromala.service1:$(Build.BuildId)'
-            
-          - task: Docker@2
-            displayName: Push pawel.gromala.service1 to DockerHub
-            inputs:
-              containerRegistry: 'pawelgromala_docker_hub'
-              repository: 'pawelgromala/allegro_pay'
-              command: 'push'
-              tags: 'pawel.gromala.service1:$(Build.BuildId)'
-              arguments: '-c Release'
-
           # - task: Docker@2
-          #   displayName: Dockerize and push Pawel.Gromala.Service1 to docker hub
+          #   displayName: Build pawel.gromala.service1 
+          #   inputs:
+          #     command: 'build'
+          #     Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
+          #     buildContext: 'src/'
+          #     tags: 'pawel.gromala.service1:$(Build.BuildId)'
+            
+          # - task: Docker@2
+          #   displayName: Push pawel.gromala.service1 to DockerHub
           #   inputs:
           #     containerRegistry: 'pawelgromala_docker_hub'
           #     repository: 'pawelgromala/allegro_pay'
-          #     command: 'buildAndPush'
-          #     Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
-          #     arguments: '-t pawel.gromala.service1:$(Build.BuildId)'
+          #     command: 'push'
+          #     tags: 'pawel.gromala.service1:$(Build.BuildId)'
+          #     arguments: '-c Release'
+
+          - task: Docker@2
+            displayName: Dockerize and push Pawel.Gromala.Service1 to docker hub
+            inputs:
+              containerRegistry: 'pawelgromala_docker_hub'
+              repository: 'pawelgromala/allegro_pay'
+              command: 'buildAndPush'
+              Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
+              arguments: '-t pawel.gromala.service1:$(Build.BuildId)'
 
           # - task: Docker@2
           #   displayName: Dockerize and push Pawel.Gromala.Service2 to docker hub
