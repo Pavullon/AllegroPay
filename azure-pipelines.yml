@@ -60,52 +60,52 @@ stages:
               arguments: '-c Release'
 
           - task: Docker@2
-            displayName: Build pawel.gromala.service1 
+            displayName: Build pawel_gromala_service1
             inputs:
               command: 'build'
               Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
               buildContext: 'src/Pawel.Gromala.Service1/'
-              tags: 'pawel.gromala.service1:$(Build.BuildId)'
+              tags: 'pawel_gromala_service1:$(Build.BuildId)'
             
           - task: Docker@2
-            displayName: Push pawel.gromala.service1 to DockerHub
+            displayName: Push pawel_gromala_service1 to DockerHub
             inputs:
               containerRegistry: 'pawelgromala_docker_hub'
               repository: 'pawelgromala/allegro_pay'
               command: 'push'
-              tags: 'pawel.gromala.service1:$(Build.BuildId)'
+              tags: 'pawel_gromala_service1:$(Build.BuildId)'
 
           - task: Docker@2
-            displayName: Build pawel.gromala.service2 
+            displayName: Build pawel_gromala_service2 
             inputs:
               command: 'build'
               Dockerfile: 'src/Pawel.Gromala.Service2/Dockerfile.dockerfile'
               buildContext: 'src/Pawel.Gromala.Service2/'
-              tags: 'pawel.gromala.service2:$(Build.BuildId)'
+              tags: 'pawel_gromala_service2:$(Build.BuildId)'
             
           - task: Docker@2
-            displayName: Push pawel.gromala.service2 to DockerHub
+            displayName: Push pawel_gromala_service2 to DockerHub
             inputs:
               containerRegistry: 'pawelgromala_docker_hub'
               repository: 'pawelgromala/allegro_pay'
               command: 'push'
-              tags: 'pawel.gromala.service2:$(Build.BuildId)'
+              tags: 'pawel_gromala_service2:$(Build.BuildId)'
 
           - task: Docker@2
-            displayName: Build pawel.gromala.service3 
+            displayName: Build pawel_gromala_service3 
             inputs:
               command: 'build'
               Dockerfile: 'src/Pawel.Gromala.Service3/Dockerfile.dockerfile'
               buildContext: 'src/Pawel.Gromala.Service3/'
-              tags: 'pawel.gromala.service3:$(Build.BuildId)'
+              tags: 'pawel_gromala_service3:$(Build.BuildId)'
             
           - task: Docker@2
-            displayName: Push pawel.gromala.service3 to DockerHub
+            displayName: Push pawel_gromala_service3 to DockerHub
             inputs:
               containerRegistry: 'pawelgromala_docker_hub'
               repository: 'pawelgromala/allegro_pay'
               command: 'push'
-              tags: 'pawel.gromala.service3:$(Build.BuildId)'
+              tags: 'pawel_gromala_service3:$(Build.BuildId)'
 
 
           # - task: Docker@2
