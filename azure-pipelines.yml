@@ -67,7 +67,7 @@ stages:
           #     buildContext: 'src/Pawel.Gromala.Service1/'
           
           - powershell: |
-              docker build -t pawelgromala_service1 -f /src/Pawel.Gromala.Service1/Dockerfile.dockerfile ./src/Pawel.Gromala.Service1/
+              docker build -t pawelgromala_service1 -f src/Pawel.Gromala.Service1/Dockerfile.dockerfile src/Pawel.Gromala.Service1/
           - powershell: |
               docker images 
           # - task: Docker@2
