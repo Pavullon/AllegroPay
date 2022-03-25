@@ -73,7 +73,7 @@ stages:
               containerRegistry: 'pawelgromala_docker_hub'
               repository: 'pawelgromala/allegro_pay'
               command: 'push'
-              tags: '$(Build.BuildId)'
+              tags: 'pawelgromala/$(Build.BuildId)'
 
           # - task: Docker@2
           #   displayName: Build pawel_gromala_service2 
