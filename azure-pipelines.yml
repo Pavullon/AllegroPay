@@ -67,8 +67,9 @@ stages:
           #     buildContext: 'src/Pawel.Gromala.Service1/'
           
           - powershell: |
-              docker images
-            
+              docker build -t pawelgromala_service1 -f /src/Pawel.Gromala.Service1/Dockerfile.dockerfile ./src/Pawel.Gromala.Service1/
+          - powershell: |
+              docker images 
           # - task: Docker@2
           #   displayName: Push pawel_gromala_service1 to DockerHub
           #   inputs:
