@@ -59,10 +59,29 @@ stages:
               publishWebProjects: true
               arguments: '-c Release'
 
-          # - task: Docker@2
-          #   inputs:
-          #     containerRegistry: 'pawelgromala_docker_hub'
-          #     repository: 'pawelgromala/allegro_pay'
-          #     command: 'buildAndPush'
-          #     Dockerfile: 'Pawel.Gromala.Service1/Dockerfile.dockerfile'
-          #     arguments: '-t pawel.gromala.service1:$(Build.BuildId)'
+          - task: Docker@2
+            displayName: Dockerize and push Pawel.Gromala.Service1 to docker hub
+            inputs:
+              containerRegistry: 'pawelgromala_docker_hub'
+              repository: 'pawelgromala/allegro_pay'
+              command: 'buildAndPush'
+              Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
+              arguments: '-t pawel.gromala.service1:$(Build.BuildId)'
+
+          - task: Docker@2
+            displayName: Dockerize and push Pawel.Gromala.Service2 to docker hub
+            inputs:
+              containerRegistry: 'pawelgromala_docker_hub'
+              repository: 'pawelgromala/allegro_pay'
+              command: 'buildAndPush'
+              Dockerfile: 'src/Pawel.Gromala.Service2/Dockerfile.dockerfile'
+              arguments: '-t pawel.gromala.service2:$(Build.BuildId)'
+          
+          - task: Docker@2
+            displayName: Dockerize and push Pawel.Gromala.Service3 to docker hub
+            inputs:
+              containerRegistry: 'pawelgromala_docker_hub'
+              repository: 'pawelgromala/allegro_pay'
+              command: 'buildAndPush'
+              Dockerfile: 'src/Pawel.Gromala.Service3/Dockerfile.dockerfile'
+              arguments: '-t pawel.gromala.service3:$(Build.BuildId)'
