@@ -64,7 +64,7 @@ stages:
             inputs:
               command: 'build'
               Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
-              buildContext: 'src/Pawel.Gromala.Service1'
+              buildContext: 'src/Pawel.Gromala.Service1/'
               tags: 'pawel.gromala.service1:$(Build.BuildId)'
             
           - task: Docker@2
@@ -80,7 +80,7 @@ stages:
             inputs:
               command: 'build'
               Dockerfile: 'src/Pawel.Gromala.Service2/Dockerfile.dockerfile'
-              buildContext: 'src/Pawel.Gromala.Service2'
+              buildContext: 'src/Pawel.Gromala.Service2/'
               tags: 'pawel.gromala.service2:$(Build.BuildId)'
             
           - task: Docker@2
@@ -96,7 +96,7 @@ stages:
             inputs:
               command: 'build'
               Dockerfile: 'src/Pawel.Gromala.Service3/Dockerfile.dockerfile'
-              buildContext: 'src/Pawel.Gromala.Service3'
+              buildContext: 'src/Pawel.Gromala.Service3/'
               tags: 'pawel.gromala.service3:$(Build.BuildId)'
             
           - task: Docker@2
