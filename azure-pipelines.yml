@@ -21,7 +21,7 @@ stages:
         displayName: Build Job
 
         pool:
-          vmImage: 'ubuntu-latest'
+          vmImage: 'microsoft-latest'
 
         steps:
         - task: NuGetToolInstaller@1
@@ -42,15 +42,13 @@ stages:
             platform: '$(buildPlatform)'
             configuration: '$(buildConfiguration)'
 
-        - task: DotNetCoreCLI@2
-          inputs:
-              command: 'publish'
-              publishWebProjects: true
 
-      - job: Powershell
+      - job: Dockerize
         dependsOn: Build
         steps:
 
+          - powershell: |
+              ls ./
           - task: Docker@2
             inputs:
               containerRegistry: 'pawelgromala_docker_hub'
