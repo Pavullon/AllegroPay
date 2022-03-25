@@ -74,7 +74,39 @@ stages:
               repository: 'pawelgromala/allegro_pay'
               command: 'push'
               tags: 'pawel.gromala.service1:$(Build.BuildId)'
-              arguments: '-c Release'
+
+          - task: Docker@2
+            displayName: Build pawel.gromala.service2 
+            inputs:
+              command: 'build'
+              Dockerfile: 'src/Pawel.Gromala.Service2/Dockerfile.dockerfile'
+              buildContext: 'src/Pawel.Gromala.Service2'
+              tags: 'pawel.gromala.service2:$(Build.BuildId)'
+            
+          - task: Docker@2
+            displayName: Push pawel.gromala.service2 to DockerHub
+            inputs:
+              containerRegistry: 'pawelgromala_docker_hub'
+              repository: 'pawelgromala/allegro_pay'
+              command: 'push'
+              tags: 'pawel.gromala.service2:$(Build.BuildId)'
+
+          - task: Docker@2
+            displayName: Build pawel.gromala.service3 
+            inputs:
+              command: 'build'
+              Dockerfile: 'src/Pawel.Gromala.Service3/Dockerfile.dockerfile'
+              buildContext: 'src/Pawel.Gromala.Service3'
+              tags: 'pawel.gromala.service3:$(Build.BuildId)'
+            
+          - task: Docker@2
+            displayName: Push pawel.gromala.service3 to DockerHub
+            inputs:
+              containerRegistry: 'pawelgromala_docker_hub'
+              repository: 'pawelgromala/allegro_pay'
+              command: 'push'
+              tags: 'pawel.gromala.service3:$(Build.BuildId)'
+
 
           # - task: Docker@2
           #   displayName: Dockerize and push Pawel.Gromala.Service1 to docker hub
