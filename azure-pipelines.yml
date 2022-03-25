@@ -66,7 +66,6 @@ stages:
               Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
               buildContext: 'src/'
               tags: 'pawel.gromala.service1:$(Build.BuildId)'
-              arguments: '-c Release'
             
           - task: Docker@2
             displayName: Push pawel.gromala.service1 to DockerHub
