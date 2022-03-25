@@ -46,38 +46,27 @@ stages:
         dependsOn: Build
         steps:
 
-          - powershell: |
-              Write-Host "Current directory: "
-              pwd
-              Write-Host "Artifact staging directory: " $(build.artifactStagingDirectory)\
-              ls ./
-              ls $(build.artifactStagingDirectory)
           - task: DotNetCoreCLI@2
             displayName: Publish WebApp
             inputs:
               command: 'publish'
               publishWebProjects: true
               arguments: '-c Release'
-
-          - task: Docker@2
-            displayName: Build pawel_gromala_service1
-            inputs:
-              command: 'build'
-              Dockerfile: 'src/Pawel.Gromala.Service1/Dockerfile.dockerfile'
-              buildContext: 'src/Pawel.Gromala.Service1/'
-              tags: 'pawelgromala_service1'
           
-          # - powershell: |
-          #     docker build -t pawelgromala_service1 -f src/Pawel.Gromala.Service1/Dockerfile.dockerfile src/Pawel.Gromala.Service1/
+          #Build and push Pawel.Gromala.Service1 image to DockerHub via powershell
           - powershell: |
-              docker images 
+              docker build -t pawelgromala/allegro_pay:service1_1.0 -f src/Pawel.Gromala.Service1/Dockerfile.dockerfile src/Pawel.Gromala.Service1/
+
+          - powershell: |
+              docker images
+
           # - task: Docker@2
           #   displayName: Push pawel_gromala_service1 to DockerHub
           #   inputs:
           #     containerRegistry: 'pawelgromala_docker_hub'
-          #     repository: 'pawelgromala/allegro_pay'
+          #     repository: 'pawel.gromala.service1'
           #     command: 'push'
-          #     tags: 'pawelgromala'
+          #     tags: '1.0'
 
           # - task: Docker@2
           #   displayName: Build pawel_gromala_service2 
