@@ -2,13 +2,13 @@
 
 Projekt utworzony na potrzeby zadania rekrutacyjnego do AllegroPay.
 
-## Wymagania
+### Wymagania
 
 1. Utwórz otwarte repozytorium na GitHub zawierające rozwiązanie zadania
 2. Zintegruj projekt na GitHub z Azure DevOps tak, aby można było korzystać z Azure Pipelines do budowania i walidacji projektu
 3. Udostępnij adres repozytorium do Allegro
 
-## Cele
+### Cele
 
 1. W repozytorium utwórz 3 serwisy .NET Core 3.1 (WebApi) typu ‘hello world’
     - Imie.Nazwisko.Service1
@@ -25,4 +25,13 @@ Projekt utworzony na potrzeby zadania rekrutacyjnego do AllegroPay.
     - Będzie można skonteneryzować całą solucję i wyemitować obrazy kontenerów do hub.docker.co
 
 ## Realizacja
+### Github
+
+Pierwszym eementem jaki został wykonany, to zostało utworzone publiczne repozytorium na github na którym został umieszczony cały kod źródłowy. Cały kod został napisany w Visual Studio 2022 Community i z nim zostało zintegrowane repozytorium github.
+
+### Azure DevOps Server
+
+Kolejnym krokiem było zintegrowanie repozytorium github z Azure DevOps Server. Posiadałem już konto na platformie ADS, dlatego wystarczyło tylko utworzyć osobny projekt i przejść do utworzenia i konfiguracji Pipeline 
+
+
 
