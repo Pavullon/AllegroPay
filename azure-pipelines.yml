@@ -42,11 +42,6 @@ stages:
             platform: '$(buildPlatform)'
             configuration: '$(buildConfiguration)'
 
-        - task: DotNetCoreCLI@2
-          inputs:
-              command: 'publish'
-              publishWebProjects: true
-
       - job: Dockerize
         dependsOn: Build
         steps:
@@ -55,10 +50,19 @@ stages:
               Write-Host "Current directory: "
               pwd
               Write-Host "Artifact staging directory: " $(build.artifactStagingDirectory)\
-          - task: Docker@2
+              ls ./
+              ls $(build.artifactStagingDirectory)
+          - task: DotNetCoreCLI@2
+            displayName: Publish WebApp
             inputs:
-              containerRegistry: 'pawelgromala_docker_hub'
-              repository: 'pawelgromala/allegro_pay'
-              command: 'buildAndPush'
-              Dockerfile: 'Pawel.Gromala.Service1/Dockerfile.dockerfile'
-              arguments: '-t pawel.gromala.service1:$(Build.BuildId)'
+              command: 'publish'
+              publishWebProjects: true
+              arguments: '-c Release'
+
+          # - task: Docker@2
+          #   inputs:
+          #     containerRegistry: 'pawelgromala_docker_hub'
+          #     repository: 'pawelgromala/allegro_pay'
+          #     command: 'buildAndPush'
+          #     Dockerfile: 'Pawel.Gromala.Service1/Dockerfile.dockerfile'
+          #     arguments: '-t pawel.gromala.service1:$(Build.BuildId)'
