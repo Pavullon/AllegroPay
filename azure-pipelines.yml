@@ -21,7 +21,7 @@ stages:
         displayName: Build Job
 
         pool:
-          vmImage: 'microsoft-latest'
+          vmImage: 'windows-latest'
 
         steps:
         - task: NuGetToolInstaller@1
