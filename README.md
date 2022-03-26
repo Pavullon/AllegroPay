@@ -33,5 +33,50 @@ Pierwszym eementem jaki został wykonany, to zostało utworzone publiczne repozy
 
 Kolejnym krokiem było zintegrowanie repozytorium github z Azure DevOps Server. Posiadałem już konto na platformie ADS, dlatego wystarczyło tylko utworzyć osobny projekt i przejść do utworzenia i konfiguracji Pipeline 
 
+### Docker/Docker-Compose
+
+Celem skonteneryzowania serwisów utworzono pliki Dockerfile w każdym z projektów:
+
+    FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+    WORKDIR /app
+
+    # Copy csproj and restore as distinct layers
+    COPY *.csproj ./
+    RUN dotnet restore
+
+    # Copy everything else and build
+    COPY . ./
+    RUN dotnet publish -c Release -o out
+
+    # Build runtime image
+    FROM mcr.microsoft.com/dotnet/aspnet:6.0
+    WORKDIR /app
+    COPY --from=build-env /app/out .
+    ENTRYPOINT ["dotnet", "Pawel.Gromala.Service1.dll"]
+
+Na potrzeby projektu został również utworzony plik docker-compose.yml celem uruchamiania wszystkich serwisów z odpowiednią konfiguracją i wystawieniem portów. Plik ten został zamieszczony w lokalizacji Docker/docker-compose.yml, a zawartość przedstawia się jak poniżej:
 
 
+    version: '3.3'
+
+    services:
+        Pawel.Gromala.Service1:
+            image: pawelgromala/allegro_pay:latest_service1
+            container_name: allegro_pay_service1
+            restart: unless-stopped
+            ports:
+                - 8001:80
+
+        Pawel.Gromala.Service2:
+            image: pawelgromala/allegro_pay:latest_service2
+            container_name: allegro_pay_service2
+            restart: unless-stopped
+            ports:
+                - 8002:80
+
+        Pawel.Gromala.Service3:
+            image: pawelgromala/allegro_pay:latest_service3
+            container_name: allegro_pay_service3
+            restart: unless-stopped
+            ports:
+                - 8003:80
