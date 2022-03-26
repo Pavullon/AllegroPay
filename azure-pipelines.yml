@@ -1,14 +1,14 @@
 trigger: none
 
-#resources:
-#  pipelines:
-#  - pipeline: pr-validation-pipelines
-#    source: Pavullon.AllegroPay - PR Validation
-#    trigger:
-#      enabled: true
-#      branches:
-#        include:
-#          - master
+resources:
+ pipelines:
+ - pipeline: pr-validation-pipelines
+   source: Pavullon.AllegroPay - PR Validation
+   trigger:
+     enabled: true
+     branches:
+       include:
+         - master
 
 #variables:
 #  solution: '**/*.sln'
