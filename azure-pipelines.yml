@@ -1,8 +1,10 @@
 resources:
   pipelines:
-  - pipeline: prValidation
+  - pipeline: pr-validation-pipelines
     source: Pavullon/AllegroPay - PR Validation
     trigger: true
+
+trigger: none
 
 variables:
   solution: '**/*.sln'
