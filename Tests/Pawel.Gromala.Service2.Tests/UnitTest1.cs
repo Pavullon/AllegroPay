@@ -9,7 +9,9 @@ namespace Pawel.Gromala.Service2.Tests
         {
             //Arrange
             //Act
-            //Assert test       
+            //Assert test
+            //
+
         }
     }
 }
