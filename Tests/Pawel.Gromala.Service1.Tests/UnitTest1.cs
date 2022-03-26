@@ -7,6 +7,9 @@ namespace Pawel.Gromala.Service1.Tests
         [Fact]
         public void Test1()
         {
+            //Arrange
+            //Act
+            //Assert
 
         }
     }
