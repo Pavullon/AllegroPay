@@ -6,9 +6,9 @@ pr:
 #  buildPlatform: 'Any CPU'
 #  buildConfiguration: 'Release'
 
-#stages:
-#  - stage: Build
-#    displayName: Build stage
+stages:
+  - stage: Build
+    displayName: Build stage
     
 #    jobs:
 #      - job: Build
