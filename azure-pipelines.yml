@@ -1,7 +1,7 @@
 resources:
   pipelines:
   - pipeline: pr-validation-pipelines
-    source: Pavullon/AllegroPay - PR Validation
+    source: Pavullon.AllegroPay - PR Validation
     trigger: true
 
 trigger: none
