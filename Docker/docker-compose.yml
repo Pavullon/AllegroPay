@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+    Pawel.Gromala.Service1:
+        image: pawelgromala/allegro_pay:latest_service1
+        container_name: allegro_pay_service1
+        restart: unless-stopped
+        ports:
+            - 8001:80
+
+    Pawel.Gromala.Service2:
+        image: pawelgromala/allegro_pay:latest_service2
+        container_name: allegro_pay_service2
+        restart: unless-stopped
+        ports:
+            - 8002:80
+
+    Pawel.Gromala.Service3:
+        image: pawelgromala/allegro_pay:latest_service3
+        container_name: allegro_pay_service3
+        restart: unless-stopped
+        ports:
+            - 8003:80
