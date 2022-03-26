@@ -4,8 +4,7 @@ resources:
     source: Pavullon.AllegroPay - PR Validation
     trigger: none
     
-trigger: 
-- master
+trigger: none
 
 variables:
   solution: '**/*.sln'
