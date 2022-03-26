@@ -1,15 +1,19 @@
-resources:
-  pipelines:
-  - pipeline: pr-validation-pipelines
-    source: Pavullon.AllegroPay - PR Validation
-    trigger: none
-    
 trigger: none
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+#resources:
+#  pipelines:
+#  - pipeline: pr-validation-pipelines
+#    source: Pavullon.AllegroPay - PR Validation
+#    trigger:
+#      enabled: true
+#      branches:
+#        include:
+#          - master
+
+#variables:
+#  solution: '**/*.sln'
+#  buildPlatform: 'Any CPU'
+#  buildConfiguration: 'Release'
 
 stages:
   - stage: Build
@@ -23,69 +27,71 @@ stages:
           vmImage: 'windows-latest'
 
         steps:
-        - task: NuGetToolInstaller@1
+        - powershell: |
+            ls ./
+#        - task: NuGetToolInstaller@1
 
-        - task: NuGetCommand@2
-          inputs:
-            restoreSolution: '$(solution)'
+#        - task: NuGetCommand@2
+#          inputs:
+#            restoreSolution: '$(solution)'
 
-        - task: VSBuild@1
-          inputs:
-            solution: '$(solution)'
-            msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-            platform: '$(buildPlatform)'
-            configuration: '$(buildConfiguration)'
+#        - task: VSBuild@1
+#          inputs:
+#            solution: '$(solution)'
+#            msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+#            platform: '$(buildPlatform)'
+#            configuration: '$(buildConfiguration)'
 
-        - task: VSTest@2
-          inputs:
-            platform: '$(buildPlatform)'
-            configuration: '$(buildConfiguration)'
+#        - task: VSTest@2
+#          inputs:
+#            platform: '$(buildPlatform)'
+#            configuration: '$(buildConfiguration)'
 
-      - job: Dockerize
-        displayName: Dockerize Job
-        dependsOn: Build
-        steps:
+#      - job: Dockerize
+#        displayName: Dockerize Job
+#        dependsOn: Build
+#        steps:
 
-          - task: DotNetCoreCLI@2
-            displayName: Publish WebApp
-            inputs:
-              command: 'publish'
-              publishWebProjects: true
-              arguments: '-c Release'
+#          - task: DotNetCoreCLI@2
+#            displayName: Publish WebApp
+#            inputs:
+#              command: 'publish'
+#              publishWebProjects: true
+#              arguments: '-c Release'
           
-          #Build and push Pawel.Gromala.Service1 image to DockerHub via powershell
-          - powershell: |
-              docker build -t pawelgromala/allegro_pay:latest_service1 -f src/Pawel.Gromala.Service1/Dockerfile.dockerfile src/Pawel.Gromala.Service1/
+#          #Build and push Pawel.Gromala.Service1 image to DockerHub via powershell
+#          - powershell: |
+#              docker build -t pawelgromala/allegro_pay:latest_service1 -f src/Pawel.Gromala.Service1/Dockerfile.dockerfile src/Pawel.Gromala.Service1/
 
-          - task: Docker@2
-            displayName: Push latest_service1 to DockerHub
-            inputs:
-              containerRegistry: 'pawelgromala_docker_hub'
-              repository: 'pawelgromala/allegro_pay'
-              command: 'push'
-              tags: 'latest_service1'
+#          - task: Docker@2
+#            displayName: Push latest_service1 to DockerHub
+#            inputs:
+#              containerRegistry: 'pawelgromala_docker_hub'
+#              repository: 'pawelgromala/allegro_pay'
+#              command: 'push'
+#              tags: 'latest_service1'
           
 
-          #Build and push Pawel.Gromala.Service2 image to DockerHub via powershell
-          - powershell: |
-              docker build -t pawelgromala/allegro_pay:latest_service2 -f src/Pawel.Gromala.Service2/Dockerfile.dockerfile src/Pawel.Gromala.Service2/
+#          #Build and push Pawel.Gromala.Service2 image to DockerHub via powershell
+#          - powershell: |
+#              docker build -t pawelgromala/allegro_pay:latest_service2 -f src/Pawel.Gromala.Service2/Dockerfile.dockerfile src/Pawel.Gromala.Service2/
 
-          - task: Docker@2
-            displayName: Push latest_service2 to DockerHub
-            inputs:
-              containerRegistry: 'pawelgromala_docker_hub'
-              repository: 'pawelgromala/allegro_pay'
-              command: 'push'
-              tags: 'latest_service2'
+#          - task: Docker@2
+#            displayName: Push latest_service2 to DockerHub
+#            inputs:
+#              containerRegistry: 'pawelgromala_docker_hub'
+#              repository: 'pawelgromala/allegro_pay'
+#              command: 'push'
+#              tags: 'latest_service2'
 
-          #Build and push Pawel.Gromala.Service3 image to DockerHub via powershell
-          - powershell: |
-              docker build -t pawelgromala/allegro_pay:latest_service3 -f src/Pawel.Gromala.Service3/Dockerfile.dockerfile src/Pawel.Gromala.Service3/
+#          #Build and push Pawel.Gromala.Service3 image to DockerHub via powershell
+#          - powershell: |
+#              docker build -t pawelgromala/allegro_pay:latest_service3 -f src/Pawel.Gromala.Service3/Dockerfile.dockerfile src/Pawel.Gromala.Service3/
 
-          - task: Docker@2
-            displayName: Push latest_service3 to DockerHub
-            inputs:
-              containerRegistry: 'pawelgromala_docker_hub'
-              repository: 'pawelgromala/allegro_pay'
-              command: 'push'
-              tags: 'latest_service3'
+#          - task: Docker@2
+#            displayName: Push latest_service3 to DockerHub
+#            inputs:
+#              containerRegistry: 'pawelgromala_docker_hub'
+#              repository: 'pawelgromala/allegro_pay'
+#              command: 'push'
+#              tags: 'latest_service3'
