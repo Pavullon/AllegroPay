@@ -10,14 +10,16 @@ stages:
   - stage: Build
     displayName: Build stage
     
-#    jobs:
-#      - job: Build
-#        displayName: Build Job
+    jobs:
+      - job: Build
+        displayName: Build Job
 
-#        pool:
-#          vmImage: 'windows-latest'
+        pool:
+          vmImage: 'windows-latest'
 
-#        steps:
+        steps:
+         - powerhell: |
+            ls ./
 #        - task: NuGetToolInstaller@1
 
 #        - task: NuGetCommand@2
