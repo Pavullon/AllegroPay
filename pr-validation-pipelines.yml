@@ -1,10 +1,12 @@
+trigger: none
+
 pr:
 - master
 
-#variables:
-#  solution: '**/*.sln'
-#  buildPlatform: 'Any CPU'
-#  buildConfiguration: 'Release'
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
 
 stages:
   - stage: Build
@@ -21,7 +23,7 @@ stages:
          - powershell: |
             ls ./
 #        - task: NuGetToolInstaller@1
-
+ 
 #        - task: NuGetCommand@2
 #          inputs:
 #            restoreSolution: '$(solution)'
@@ -37,3 +39,4 @@ stages:
 #          inputs:
 #            platform: '$(buildPlatform)'
 #            configuration: '$(buildConfiguration)'
+
