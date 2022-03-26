@@ -18,7 +18,7 @@ stages:
           vmImage: 'windows-latest'
 
         steps:
-         - powerhell: |
+         - powershell: |
             ls ./
 #        - task: NuGetToolInstaller@1
 
