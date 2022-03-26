@@ -23,7 +23,7 @@ stages:
          - powershell: |
             ls ./
 #        - task: NuGetToolInstaller@1
-
+ 
 #        - task: NuGetCommand@2
 #          inputs:
 #            restoreSolution: '$(solution)'
