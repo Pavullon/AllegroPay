@@ -29,7 +29,7 @@ Projekt utworzony na potrzeby zadania rekrutacyjnego do AllegroPay.
 ## Realizacja
 ### Github
 
-Pierwszym eementem jaki został wykonany, to utworzenie publicznego repozytorium github, na którym został umieszczony cały kod źródłowy. Cały kod został napisany w Visual Studio 2022 Community i z nim zostało zintegrowane repozytorium github.
+Pierwszym krokiem jaki został wykonany, to utworzenie publicznego repozytorium github, na którym został umieszczony cały kod źródłowy. Cały kod został napisany w Visual Studio 2022 Community i z nim zostało zintegrowane repozytorium github.
 
 ### Azure DevOps Server
 
