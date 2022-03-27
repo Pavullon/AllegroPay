@@ -1,6 +1,8 @@
 # AllegroPay Services
 
-Projekt utworzony na potrzeby zadania rekrutacyjnego do AllegroPay.
+Projekt utworzony na potrzeby zadania rekrutacyjnego do AllegroPay. 
+
+***Na wstępie chciałem zaznaczyć iż w historii commit'ów jest lekki bałagan z racji dużej ilości różnych testów całości rozwiązania. Nie chciałem tworzyć repo na nowo, aby można było prześledzić przebieg tworzenia całości rozwiązania zadania.***
 
 ### Wymagania
 
@@ -15,7 +17,7 @@ Projekt utworzony na potrzeby zadania rekrutacyjnego do AllegroPay.
     - Imie.Nazwisko.Service2
     - Imie.Nazwisko.Service3
 
-(usługi mają nie mieć włączonych żadnych zabezpieczeń jak CORS, SSL itp, mają się jedynie uruchomić i zwrócić WeatherForecast tak, jak w oficjalnym tutorial’u - https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio)
+(usługi mają nie mieć włączonych żadnych zabezpieczeń jak CORS, SSL itp, mają się jedynie uruchomić i zwrócić WeatherForecast tak, jak w oficjalnym tutorial’u - [.NET Core WebApi Tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio)
 
 2. Do każdego serwisu utwórz projekt testowy (XUnit): Imie.Nazwisko.Service[i].Tests
 
@@ -27,11 +29,29 @@ Projekt utworzony na potrzeby zadania rekrutacyjnego do AllegroPay.
 ## Realizacja
 ### Github
 
-Pierwszym elementem jaki został wykonany, to zostało utworzone publiczne repozytorium na github na którym został umieszczony cały kod źródłowy. Cały kod został napisany w Visual Studio 2022 Community i z nim zostało zintegrowane repozytorium github.
+Pierwszym krokiem jaki został wykonany, to utworzenie publicznego repozytorium github, na którym został umieszczony cały kod źródłowy. Cały kod został napisany w Visual Studio 2022 Community i z nim zostało zintegrowane repozytorium github.
 
 ### Azure DevOps Server
 
-Kolejnym krokiem było zintegrowanie repozytorium github z Azure DevOps Server. Posiadałem już konto na platformie ADS, dlatego wystarczyło tylko utworzyć osobny projekt i przejść do utworzenia i konfiguracji Pipeline 
+Kolejnym krokiem było zintegrowanie repozytorium github z Azure DevOps Server. Posiadałem już konto na platformie ADS, dlatego wystarczyło tylko utworzyć osobny projekt i przejść do utworzenia pipeline, wykorzystując do tego utworzone odpowiednie pliki YAML znajdujące się w repozytorium GitHub. 
+
+#### Walidacja Pull Requests
+
+Pierwszym krokiem do poprawnej walidacji Pull Request jest zabezpieczenie przed wbijaniem jakichkolwiek zmian bezpośrednio do gałęzi `master`. Dzięki czemu nanoszenie zmian na główny branch możliwe będzie tylko przy wydzieleniu feature branch'a i utworzeniu Pull Request'a.  
+
+Następnie w pliku pr-validation-pipelines.yml dodane zostały triggery, które powodują, że pipeline nie reaguje na wbicie bespośrednie do brancha `master`, ale reaguje  na utworzenie PR do wspomnianej głównej gałęzi.
+
+    pr:
+    - master
+    trigger: none
+
+#### Wyzwolenie pipeline przy każdym merge'u do gałęzi `master`
+
+Drugim plikiem jest plik azure-pipelines.yml zawierający już właściwy pipeline wraz z ponownym zbudowaniem i przetestowaniem solucji oraz koneneryzacją serwisów i umieszczeniem ich w [repozytorium docker hub](https://hub.docker.com/repository/docker/pawelgromala/allegro_pay)
+
+    trigger: 
+      - master
+    pr: none
 
 ### Docker/Docker-Compose
 
