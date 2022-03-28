@@ -42,7 +42,13 @@ Pierwszym krokiem do poprawnej walidacji Pull Request jest zabezpieczenie przed 
 Następnie w pliku pr-validation-pipelines.yml dodane zostały triggery, które powodują, że pipeline nie reaguje na wbicie bespośrednie do brancha `master`, ale reaguje  na utworzenie PR do wspomnianej głównej gałęzi.
 
     pr:
-    - master
+        branches:
+            include:
+            - master
+        paths:
+            exclude:
+            - README.md
+
     trigger: none
 
 #### Wyzwolenie pipeline przy każdym merge'u do gałęzi `master`
@@ -50,7 +56,13 @@ Następnie w pliku pr-validation-pipelines.yml dodane zostały triggery, które 
 Drugim plikiem jest plik azure-pipelines.yml zawierający już właściwy pipeline wraz z ponownym zbudowaniem i przetestowaniem solucji oraz koneneryzacją serwisów i umieszczeniem ich w [repozytorium docker hub](https://hub.docker.com/repository/docker/pawelgromala/allegro_pay)
 
     trigger: 
-      - master
+        branches:
+            include:
+            - master
+        paths:
+            exclude:
+            - README.md
+
     pr: none
 
 ### Docker/Docker-Compose
